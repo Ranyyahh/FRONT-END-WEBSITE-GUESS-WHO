@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <link rel="stylesheet" href="loginstyle.css">
+    <title>Sign Up Page</title>
+</head>
+
+<body>
+    <div class="container" id="container">
+        <div class="form-container sign-in">
+            <form action= "signup.php" method="POST">
+                <h1>Sign Up</h1>
+                <div class="social-icons"></div>
+                <input type="text" name="username" placeholder="Username" required>
+                <input type="password" name="password" placeholder="Password" required>
+                <button type="submit">Sign Up</button>
+                <a href="javascript:history.back()" class="button-link">Back</a>
+                <p>Already have an account? <a href="http://localhost/LOGIN/login.html"  style="color: skyblue; text-decoration: underline;"> Log In </a></p>
+            </form>
+        </div>
+        <div class="toggle-container">
+            <div class="toggle">
+                <div class="toggle-panel toggle-left">
+                    <h1>GUESS WHO</h1>
+                    <p>Create an account and dwell into your safe space.</p>
+                    <button class="hidden" id="login">Log In</button>
+                </div>
+                <div class="toggle-panel toggle-right">
+                    <h1>GUESS WHO</h1>
+                    <p>Create an account and dwell into your safe space.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

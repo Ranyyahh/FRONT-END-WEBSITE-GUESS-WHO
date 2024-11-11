@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <link rel="stylesheet" href="loginstyle.css">
+    <title>Login Page</title>
+</head>
+
+<body>
+    
+    <div class="container" id="container">
+        <div class="form-container sign-up">
+            <form action="register.php" method="POST">
+                <h1>Create Account</h1>
+                <div class="social-icons">
+                </div>
+                <input type="text" name="username" placeholder="Username" required>
+                <input type="password" name="password" placeholder="Password" required>
+                <button type="submit">Sign Up</button>
+            </form>
+        </div>
+        <div class="form-container sign-in">
+            <form action="loginconnect.php" method="POST">
+                <h1>Log In</h1>
+                <div class="social-icons">
+                </div>
+                <input type="text" name="username" placeholder="Username" required>
+                <input type="password" name="password" placeholder="Password" required>
+                <button type="submit">Log In</button>
+                <a href="javascript:history.back()" class= "button-link">Back</a>
+                <p>Don't have an account? <a href="signup.html" style="color: skyblue; text-decoration: underline;">Sign Up</a></p>
+
+            </form>
+        </div>
+        <div class="toggle-container">
+            <div class="toggle">
+                <div class="toggle-panel toggle-left">
+                    <h1>GUESS WHO</h1>
+                    <p>Create an account and dwell to safe place for unfiltered truths.</p>
+                    <button class="hidden" id="login">Log In</button>
+                </div>
+                <div class="toggle-panel toggle-right">
+                    <h1>GUESS WHO </h1>
+                    <p>Register with your personal details and message Anonymously.</p>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+        
+   
+</body>
+
+</html>

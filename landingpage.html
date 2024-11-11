@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>UNSENT PROJECT</title>
+        <link rel="stylesheet" href="landingpagestyle.css">
+    </head>
+    <body>
+
+        <section class="home">
+           <video class="video-slide active" src="peace.mp4" autoplay muted loop></video>
+           <video class="video-slide" src="register.mp4" autoplay muted loop></video> 
+           <video class="video-slide" src="login.mp4" autoplay muted loop></video> 
+           <video class="video-slide" src="mood.mp4" autoplay muted loop></video> 
+           
+            <div class="content active">
+                <h1>The Home<br><span>for Words</span><br><span>You never sent</span></h1>
+                <p>Express Freely and Speak Anonymously</p>
+                <a href="#" onclick="redirectToLogin();">Start Now</a>
+            </div>
+            
+            <div class="content">
+                <h1>Register your<br><span>Account</span></h1>
+                <p>Create your own personalized account and let your heart speak</p>
+                <a href="#" onclick="redirectToRegister();">Start Now</a>
+            </div>
+            <div class="content">
+                <h1>Login your<br><span>Account</span></h1>
+                <p>Discover other people's unsent thoughts.</p>
+                <a href="#" onclick="redirectToLogin();">Start Now</a>
+            </div>
+            <div class="content">
+                <h1>Create<br><span>your own Unsent Message</span><br></h1>
+                <p>A safe place for unfiltered truths.</p>
+                <a href="#" onclick="redirectToLogin();">Start Now</a>
+            </div>
+           
+            </div>
+            <div class="slider-navigation">
+                <div class="nav-btn active"></div>
+                <div class="nav-btn"></div>
+                <div class="nav-btn"></div>
+                <div class="nav-btn"></div>
+            </div>
+        </section>
+
+        <script type="text/javascript">
+            const btns = document.querySelectorAll(".nav-btn");
+            const slides = document.querySelectorAll(".video-slide");
+            const contents = document.querySelectorAll(".content");
+
+            var sliderNav = function(manual){
+                btns.forEach((btn) => {
+                    btn.classList.remove("active");
+                });
+
+                slides.forEach((slide) => {
+                    slide.classList.remove("active");
+                });
+
+                contents.forEach((content) => {
+                    content.classList.remove("active");
+                });
+
+                btns[manual].classList.add("active");
+                slides[manual].classList.add("active");
+                contents[manual].classList.add("active");
+            }
+
+            btns.forEach((btn, i) => {
+                btn.addEventListener("click", () => {
+                    sliderNav(i);
+                });
+            });
+            
+        function redirectToLogin(){
+            window.location.href = 'http://localhost/LOGIN/login.html';
+        }
+        function redirectToRegister(){
+            window.location.href = 'http://localhost/LOGIN/signup.html';
+        }
+     
+        </script>
+
+    </body>
+</html>
