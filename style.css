@@ -70,17 +70,6 @@ header {
     position: relative;
 }
 
-.message1 {
-    background-color: cornflowerblue; /* Blue */
-}
-
-.message2 {
-    background-color: palevioletred; /* Pink */
-}
-
-.message3 {
-    background-color: coral; /* Orange */
-}
 
 .box i {
     font-size: 24px;
@@ -434,7 +423,7 @@ img.me {
 .message-grid {
     display: grid;
     grid-template-columns: repeat(5, 1fr);  /* 5 equal columns */
-    gap: 10px;  /* Space between the grid items */
+    gap: 5px;  /* Space between the grid items */
     margin-top: 20px;
 }
 
@@ -450,27 +439,54 @@ img.me {
     margin: 5px 0;
 }
 
-/* For responsiveness: adjust grid on smaller screens */
-@media (max-width: 1200px) {
-    .message-grid {
-        grid-template-columns: repeat(4, 1fr);  /* 4 columns on medium screens */
+@media screen and (max-width: 768px) {
+    header {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .logo h1 {
+        font-size: 16px;
+    }
+
+    nav ul {
+        gap: 10px;
+    }
+
+    .intro h1 {
+        font-size: 2rem;
+    }
+
+    .intro p {
+        font-size: 0.9rem;
     }
 }
 
-@media (max-width: 900px) {
-    .message-grid {
-        grid-template-columns: repeat(3, 1fr);  /* 3 columns on small screens */
+@media screen and (max-width: 480px) {
+    .intro h1 {
+        font-size: 1.5rem;
+    }
+
+    .intro p {
+        font-size: 0.8rem;
+    }
+
+    nav ul {
+        flex-direction: column;
+        gap: 5px;
+    }
+
+    nav ul li a {
+        font-size: 14px;
     }
 }
 
-@media (max-width: 600px) {
-    .message-grid {
-        grid-template-columns: repeat(2, 1fr);  /* 2 columns on extra small screens */
+@media screen and (max-width: 320px) {
+    .intro h1 {
+        font-size: 1.2rem;
     }
-}
 
-@media (max-width: 400px) {
-    .message-grid {
-        grid-template-columns: 1fr;  /* 1 column on very small screens */
+    .intro p {
+        font-size: 0.7rem;
     }
 }
