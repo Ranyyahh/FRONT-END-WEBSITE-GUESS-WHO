@@ -28,11 +28,13 @@
                 <div class="social-icons">
                 </div>
                 <input type="text" name="username" placeholder="Username" required>
-                <input type="password" name="password" placeholder="Password" required>
+                <div class="password-container">
+                    <input type="password" id="password" name="password" placeholder="Password" required>
+                    <i class="fa fa-eye toggle-password" onclick="togglePassword()"></i>
+                </div>
                 <button type="submit">Log In</button>
-                <a href="javascript:history.back()" class= "button-link">Back</a>
-                <p>Don't have an account? <a href="signup.html" style="color: skyblue; text-decoration: underline;">Sign Up</a></p>
-
+                <a href="javascript:history.back()" class="button-link">Back</a>
+                <p>Don't have an account? <a href="http://localhost/LOGIN/signup.html" style="color: skyblue; text-decoration: underline;">Sign Up</a></p>
             </form>
         </div>
         <div class="toggle-container">
@@ -51,7 +53,22 @@
         </div>
     </div>
         
-   
+    <script>
+        function togglePassword() {
+            const passwordField = document.getElementById('password');
+            const toggleIcon = document.querySelector('.toggle-password');
+            if (passwordField.type === 'password') {
+                passwordField.type = 'text';
+                toggleIcon.classList.remove('fa-eye');
+                toggleIcon.classList.add('fa-eye-slash');
+            } else {
+                passwordField.type = 'password';
+                toggleIcon.classList.remove('fa-eye-slash');
+                toggleIcon.classList.add('fa-eye');
+            }
+        }
+    </script>
+    
 </body>
 
 </html>
