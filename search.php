@@ -1,4 +1,6 @@
 <?php
+session_start();  // Start the session to store results temporarily
+
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     // Get search name and filter color from form inputs
     $search_name = isset($_POST['search_name']) ? trim($_POST['search_name']) : '';
@@ -23,7 +25,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     }
 
     // Base SQL query
-    $sql = "SELECT message, color, recipient FROM Messages_tbl WHERE 1=1";
+    $sql = "SELECT message, color, recipient, submitted_at FROM Messages_tbl WHERE 1=1";
     $params = [];
     $types = "";
 
@@ -60,21 +62,23 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     // Get the result
     $result = $stmt->get_result();
 
-    // Display the messages
+    // Store the results in a session to use on index.php
     if ($result->num_rows > 0) {
-        echo "<h2>Messages:</h2>";
+        $messages = [];
         while ($row = $result->fetch_assoc()) {
-            echo "<div style='background-color: " . htmlspecialchars($row['color']) . "; padding: 10px; margin: 5px 0;'>
-                    <p><strong>To:</strong> " . htmlspecialchars($row['recipient']) . "</p>
-                    <p>" . htmlspecialchars($row['message']) . "</p>
-                  </div>";
+            $messages[] = $row;  // Store each row in the messages array
         }
+        $_SESSION['search_results'] = $messages;  // Save search results in session
     } else {
-        echo "<p>No messages found matching your criteria.</p>";
+        $_SESSION['search_results'] = [];  // No results, empty array
     }
 
     // Close the statement and connection
     $stmt->close();
     $conn->close();
+
+    // Redirect back to index.php
+    header("Location: index.php");
+    exit();
 }
 ?>
