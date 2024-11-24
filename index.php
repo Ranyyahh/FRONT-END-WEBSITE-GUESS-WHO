@@ -197,28 +197,38 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             echo "Connection failed: " . $con->connect_error;
         }
     
-        $sql = "SELECT message, recipient, color, submitted_at FROM Messages_tbl ORDER BY submitted_at DESC";
-        $result = $con->query($sql);
-    
-        if ($result->num_rows > 0) {
-            while ($row = $result->fetch_assoc()) {
-                if ((!empty($search_name) && stripos($row['recipient'], $search_name) === false) ||
-                    (!empty($filter_color) && $row['color'] !== $filter_color)) {
-                    continue; 
-                }
-    
-                $bgColor = $row['color'] ? $row['color'] : 'pink'; 
-    
-                echo "<div style='height:100px; width:200px; border: 2px solid black; background-color: $bgColor; box-sizing: border-box; margin: 10px 0;'>";
-                echo "<p><strong>To: </strong>" . htmlspecialchars($row['recipient']) . "</p>";
-                echo "<p><strong>Message: </strong> " . htmlspecialchars($row['message']) . "</p>";
-                echo "<p><em><strong>Submitted at: </strong>" . htmlspecialchars($row['submitted_at']) . "</em></p>";
-                echo "</div>";
-            }
-        } else {
-            echo "<p>No messages found.</p>";
-        }
-        ?>
+        $sql = "SELECT id, message, recipient, color, likes, submitted_at FROM Messages_tbl ORDER BY submitted_at DESC";
+$result = $con->query($sql);
+
+if ($result->num_rows > 0) {
+    while ($row = $result->fetch_assoc()) {
+        $bgColor = $row['color'] ? $row['color'] : 'pink';
+        $messageUrl = "http://localhost/WEBSITE/index.php?message_id=" . $row['id']; // Generate the link to the specific message
+        
+        echo "<div class='message-box' style='background-color: $bgColor;'>";
+        echo "<div class='message-header'>
+                <i class='fas fa-envelope'></i>
+                <span class='recipient'>To: " . htmlspecialchars($row['recipient']) . "</span>
+              </div>";
+        echo "<p class='message-content'><strong>Message: </strong> " . htmlspecialchars($row['message']) . "</p>";
+        echo "<p class='message-time'><strong>Submitted at: </strong>" . htmlspecialchars($row['submitted_at']) . "</p>";
+
+        // Like button and counter
+        echo "<div class='message-buttons'>
+                <button class='like-button' data-message-id='" . $row['id'] . "'>
+                    <i class='fas fa-thumbs-up'></i> Like (<span class='like-count'>" . $row['likes'] . "</span>)
+                </button>
+                <button class='share-button' data-link='" . $messageUrl . "'><i class='fas fa-share-alt'></i> Share</button>
+              </div>";
+
+        echo "</div>";
+    }
+}
+ else {
+    echo "<div class='no-messages'>No messages found.</div>";
+}
+?>
+
     </div>
 </div>
                         <br><br>
@@ -230,8 +240,63 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                 </center>
         </div>
     </section>
+    <script>
+document.addEventListener("DOMContentLoaded", function () {
+    document.querySelectorAll(".like-button").forEach(function (button) {
+        button.addEventListener("click", function () {
+            const messageId = this.getAttribute("data-message-id");
+            const likeCountSpan = this.querySelector(".like-count");
 
+            fetch("like_handler.php", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/x-www-form-urlencoded",
+                },
+                body: "message_id=" + encodeURIComponent(messageId),
+            })
+                .then(response => response.json())
+                .then(data => {
+                    if (data.success) {
+                        let currentLikes = parseInt(likeCountSpan.textContent, 10);
+                        likeCountSpan.textContent = currentLikes + 1;
+                    } else {
+                        alert("Failed to like the message: " + data.error);
+                    }
+                })
+                .catch(error => {
+                    console.error("Error:", error);
+                });
+        });
+    });
+});
+</script>
 
+<!-- shared button -->
+    <script>
+    document.addEventListener("DOMContentLoaded", function () {
+    
+    document.querySelectorAll(".share-button").forEach(function (button) {
+        button.addEventListener("click", function () {
+            const link = this.getAttribute("data-link");
+
+            if (navigator.share) {
+                
+                navigator.share({
+                    title: "Check out this message",
+                    url: link,
+                })
+                    .then(() => console.log("Shared successfully"))
+                    .catch((error) => console.error("Error sharing", error));
+            } else {
+                
+                navigator.clipboard.writeText(link)
+                    .then(() => alert("Link copied to clipboard!"))
+                    .catch((err) => alert("Failed to copy link: " + err));
+            }
+        });
+    });
+});
+</script>
     <script>
         document.body.style.overflow = 'auto';
     </script>
