@@ -126,7 +126,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 </head>
 <body>
     <section id="home">
-        <div class="upper">
+        <div style="height: 2000px;" class="upper">
             <header>
                 <div class="logo" style="display: flex; align-items: center;">
                     <div id="imglogo" style="margin-right: 10px;">
@@ -202,10 +202,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     
         if ($result->num_rows > 0) {
             while ($row = $result->fetch_assoc()) {
-                // Filter messages if search parameters are provided
                 if ((!empty($search_name) && stripos($row['recipient'], $search_name) === false) ||
                     (!empty($filter_color) && $row['color'] !== $filter_color)) {
-                    continue; // Skip non-matching messages
+                    continue; 
                 }
     
                 $bgColor = $row['color'] ? $row['color'] : 'pink'; 
@@ -240,8 +239,3 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
 </body>
 </html>
-
-
-
-
-
