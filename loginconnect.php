@@ -27,11 +27,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         if ($stmt->rowCount() > 0) {
           
             $_SESSION['username'] = $username;
-            header("Location: http://localhost/WEBSITE/index.html#");
+            header("Location: http://localhost/WEBSITE/index.php#");
             exit();
         } else {
            
             echo '<script>alert("Incorrect username or password.");</script>';
+            echo '<script>window.location.href = "http://localhost/LOGIN/login.html";</script>';
+            exit();
         }
     } catch (PDOException $e) {
         echo "Error: " . $e->getMessage();
