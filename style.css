@@ -155,7 +155,8 @@ i:hover {
 .container {
     padding-left: 30px;
     padding-right: 30px;
-    display: flex;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     justify-content: space-between;
     height: 60vh;
 }
@@ -488,5 +489,9 @@ img.me {
 
     .intro p {
         font-size: 0.7rem;
+    }   
+    html, body {
+        height: auto;
+        overflow-y: scroll;
     }
 }
