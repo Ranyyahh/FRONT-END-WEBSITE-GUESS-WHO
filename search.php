@@ -1,42 +1,45 @@
 <?php
-session_start();  // Start the session to store results temporarily
+session_start();
 
-if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-    // Get search name and filter color from form inputs
-    $search_name = isset($_POST['search_name']) ? trim($_POST['search_name']) : '';
-    $filter_color = isset($_POST['filter_color']) ? trim($_POST['filter_color']) : '';
+// Default message display
+$messages = [];
+$search_name = '';
+$filter_color = '';
 
-    // Sanitize inputs
-    $search_name = htmlspecialchars($search_name);
-    $filter_color = htmlspecialchars($filter_color);
+// Retrieve the logged-in username or set to 'Guest' if not logged in
+$username = isset($_SESSION['username']) ? $_SESSION['username'] : 'Guest';
+
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    // Get search inputs
+    $search_name = trim($_POST['search_name'] ?? '');
+    $filter_color = trim($_POST['filter_color'] ?? '');
 
     // Database connection credentials
     $servername = "localhost";
-    $username = "root";
+    $dbUsername = "root";
     $password = "";
     $dbname = "GuessWho_db";
 
     // Create connection
-    $conn = new mysqli($servername, $username, $password, $dbname);
+    $conn = new mysqli($servername, $dbUsername, $password, $dbname);
 
     // Check the connection
     if ($conn->connect_error) {
         die("Connection failed: " . $conn->connect_error);
     }
 
-    // Base SQL query
-    $sql = "SELECT message, color, recipient, submitted_at FROM Messages_tbl WHERE 1=1";
+    // Base query
+    $sql = "SELECT id, message, color, recipient, submitted_at, likes FROM Messages_tbl WHERE 1=1";
     $params = [];
     $types = "";
 
-    // Add recipient condition if search_name is provided
+    // Add filters if provided
     if (!empty($search_name)) {
         $sql .= " AND recipient LIKE ?";
-        $params[] = "%" . $search_name . "%"; // Use LIKE for partial matching
+        $params[] = "%" . $search_name . "%";
         $types .= "s";
     }
 
-    // Add color filter condition if filter_color is provided
     if (!empty($filter_color)) {
         $sql .= " AND color = ?";
         $params[] = $filter_color;
@@ -59,26 +62,12 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         die("Query execution failed: " . $stmt->error);
     }
 
-    // Get the result
+    // Fetch results
     $result = $stmt->get_result();
+    $messages = $result->fetch_all(MYSQLI_ASSOC);
 
-    // Store the results in a session to use on index.php
-    if ($result->num_rows > 0) {
-        $messages = [];
-        while ($row = $result->fetch_assoc()) {
-            $messages[] = $row;  // Store each row in the messages array
-        }
-        $_SESSION['search_results'] = $messages;  // Save search results in session
-    } else {
-        $_SESSION['search_results'] = [];  // No results, empty array
-    }
-
-    // Close the statement and connection
+    // Close connections
     $stmt->close();
     $conn->close();
-
-    // Redirect back to index.php
-    header("Location: index.php");
-    exit();
 }
 ?>
