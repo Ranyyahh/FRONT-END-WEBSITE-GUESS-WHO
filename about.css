@@ -15,8 +15,12 @@
 header{
     justify-content: space-evenly;
     align-items: center;
-    padding: 50px 30px 40px 30px;
+    padding: 50px 60px 40px 100px;
     display: flex;
+
+    background-color: steelblue;
+    height: 3.5% ;
+    width: 92% ;
 }
 
 .logo{
@@ -45,6 +49,10 @@ header{
 nav{
     padding-right: 0;
 
+   
+    
+    
+
 }
 nav ul li{
     justify-content: flex-end;
@@ -52,7 +60,7 @@ nav ul li{
     display: inline-block;
 }
 nav ul li a{
-    color: rgb(58, 57, 57);
+    color: white;
     margin-left: 30px;
     padding-bottom: 10px;
     font-size: 18px;
@@ -184,6 +192,8 @@ from, to { border-color: transparent}
     line-height: 150%;
     word-spacing: 5px;
 }
+
+
 
 /*** Media Query ***/
 @media screen and (max-width: 1100px) {
