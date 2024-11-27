@@ -200,7 +200,6 @@ i:hover {
     letter-spacing: 2px;
     text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
     margin-top: 50px;
-    
     font-family: arial black;
     color: darkred;
 }
@@ -264,15 +263,25 @@ img.me {
 .filter-options input[type="text"] {
     background-color: steelblue;
     border: 2px solid black;
+    padding: 4px;
     color: white;
 }
-
+.filter-options input[type="text"]::placeholder {
+    color: white; /* Makes the placeholder text white */
+    opacity: 1; /* Ensures full opacity for better visibility */
+}
 .filter-options select[name="filter_color"] {
     background-color: steelblue;
     border: 2px solid black;
+    padding: 3px;
     color: white;
 }
-
+button[type="submit"] {
+    background-color: steelblue;
+    color: white;
+    padding: 4.2px;
+    border: 2px solid black;
+}
 .messagescontainer h2 {
     color: orangered;
 }
@@ -474,6 +483,81 @@ color: white;
     margin: 5px 0;
 }
 
+.message-content {
+    font-family: 'Laros', sans-serif;
+    font-weight: 900;
+    font-size: x-large;
+    text-transform:uppercase ;
+    color: white;
+    -webkit-text-stroke: 1px rgba(14, 9, 9, 0.815); 
+    text-shadow: 2px black;
+    box-sizing: border-box; 
+    margin: 0 auto;
+}
+
+.recipient {
+    font-family: 'Lato', sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    font-size: 20px;
+    align-self: center;
+    padding: 5px;
+    border: none;
+    border-radius: 5px; 
+}
+
+.message-box .message-header i.fas.fa-envelope {
+    color: black;
+}
+
+.message-box .message-header i.fas.fa-envelope:hover {
+    color: #B794F4;  
+}
+
+.message-content {
+    position: center, fixed;
+    text-align: center;
+}
+
+.message-time {
+    font-family:'Times New Roman', Times, serif;
+    font-weight: 500;
+    font-size: 0.20rem;
+    color: black;
+}
+
+.message-box .message-time i.fas.fa-clock {
+    color: white;
+    font-size: 14px;
+} 
+
+button:hover {
+    color: #B794F4;
+    font-size: 13px;
+}
+
+.like-button {
+    background-color: black;
+    color: white;
+    align-self: center;
+    padding: 5px 5px;
+    font-size: 13px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;    
+}
+
+.share-button {
+    background-color: black;
+    color: white;
+    align-self: center;
+    padding: 5px 5px;
+    font-size: 13px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
 @media screen and (max-width: 768px) {
     header {
         flex-direction: column;
@@ -633,7 +717,7 @@ color: white;
     right: 7.5px;
   }
   .flap .envelope::before {
-    transform: rotateX(180deg); 
+    transform: rotateX(180deg);
     z-index: 0;
   }
   .flap .letter {
