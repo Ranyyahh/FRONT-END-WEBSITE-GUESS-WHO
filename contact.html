@@ -3,7 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="about.css">
+    <link rel="stylesheet" href="contact.css">
+    <link href="https://fonts.googleapis.com/css2?family=Lora:wght@700&family=Open+Sans:wght@400&display=swap" rel="stylesheet">
     <link href='https://fonts.googleapis.com/css?family=Inter' rel='stylesheet'>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <title>About</title>
@@ -14,13 +15,13 @@
             <header>
                 <div class="logo" style="display: flex; align-items: center;">
                     <div id="imglogo" style="margin-right: 10px;">
-                        <img src="site_logo.png" alt="Logo">
+                        <img src="site_logo_removebg.png" alt="Logo">
                         <img src="QCU_Logo_2019.png" alt="Logo">
                         <img src="ccs_logo.png" alt="Logo">
                     </div>
                     <div>
-                        <h1 style="margin: 0;"><span>Guess</span> | Who</h1>
-                        <p style="margin: 0;">SBIT1C</p>
+                        <h1 style="margin: 0; color: white;">Guess | Who</h1>
+                        <p style="margin: 0; color: white;">SBIT1C</p>
                     </div>
                 </div>
                 <nav>
@@ -30,28 +31,49 @@
                         <li><a href="submit.html">Messages</a></li>
                         <li><a href="contact.html">Contact</a></li>
                         <li><a href="logout.php">Log Out</a></li>
+                        <li> <a class="fa fa-bars"></a> </li>
                     </ul>
                 </nav>
                 <div class="socmed_icons">
+                    
                     <i class="fa fa-bars"></i>
                 </div>
-            </header>
-            <div class="container">
-                <center>
-                    <div class="intro">
-                        <h4>Contacts of the admins</h4>
-                        <br><br>
-                    <p>MESSAGE ONE OF THE ADMINS IF YOU HAVE ANY CONCERNS</p>
-                    <br>
-                    <a href="mailto:mobe.desiree.limare@gmail.com">Gmail</a>
-                    <br>
-                    <a href="https://www.instagram.com/desi.wi/">Instagram</a>
-                    <br>
-                    <a href="https://www.facebook.com/franzremnant.reyes">Facebook</a>
-                </center>
-            </div>
-        </div>
-    
-    </section>
-</body>
-</html>
+                </header>
+                <div class="content-wrapper">
+                <div class="left-column">
+                <br>
+                <h3>Got a Question?</h3>
+                <h1>CONTACT US</h1>
+                <br>
+                <p>Feel free to reach out! Our dedicated team is ready
+                to assist you with any information you needed.</p>
+                <br>
+                <br>
+                <a
+                href="mailto:mobe.desiree.limare@gmail.com">Gmail</a>
+                <br>
+                <a
+                href="https://www.instagram.com/desi.wi/">Instagram</a>
+                <br>
+                <a
+                href="https://www.facebook.com/franzremnant.reyes">Facebook</a>
+                </div>
+                <div class="right-column">
+                <form action="submit_form.php" method="POST">
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name" required
+                placeholder="Enter your name">
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email"
+                required placeholder="Enter your email">
+                <label for="message">Message:</label>
+                <textarea id="message" name="message" required
+                placeholder="Write your message" rows="4"></textarea>
+                <button type="submit">Send Now</button>
+                </form>
+                </div>
+                </div>
+                </section>
+                </body>
+                </html>
+                
