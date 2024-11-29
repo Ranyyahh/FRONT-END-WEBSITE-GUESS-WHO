@@ -110,8 +110,8 @@ $conn->close();
                         <img src="ccs_logo.png" alt="Logo">
                     </div>
                     <div>
-                    <h1><span style="color: white" >Guess | Who </span></h1>
-                    <p style="margin: 0; color: white;">SBIT1C</p>
+                        <h1><span style="color: white;">Guess | Who</h1>
+                        <p style="margin: 0; color: white;">SBIT1C</p>
                     </div>
                 </div>                
                 <nav>
@@ -209,15 +209,15 @@ $conn->close();
                     <br><br>
                     <br><br>
                     
-
+                    <div id="about">
+                        <p>From Quezon City University<br> Web Development</p>
+                    </div>
                 </center>
             </div>
         </div>
-        <footer id="about">
-    <p>From Quezon City University<br> Web Development</p>
-</footer>
+        
+                
     </section>
-   
     <!-- Like and Share Button Scripts -->
     <script>
         document.addEventListener("DOMContentLoaded", function () {
