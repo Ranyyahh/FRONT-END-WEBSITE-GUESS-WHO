@@ -81,6 +81,7 @@ $conn->close();
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;700&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700&display=swap" rel="stylesheet">
+    <link href='https://fonts.googleapis.com/css?family=Poppins' rel='stylesheet'>
 
     <style>
         body::-webkit-scrollbar {
@@ -104,13 +105,13 @@ $conn->close();
             <header>
                 <div class="logo" style="display: flex; align-items: center;">
                     <div id="imglogo" style="margin-right: 10px;">
-                        <img src="site_logo.png" alt="Logo">
+                        <img src="site_logo_removebg.png" alt="Logo">
                         <img src="QCU_Logo_2019.png" alt="Logo">
                         <img src="ccs_logo.png" alt="Logo">
                     </div>
                     <div>
-                        <h1 style="margin: 0;"><span>Guess</span> | Who</h1>
-                        <p style="margin: 0;">SBIT1C</p>
+                    <h1><span style="color: white" >Guess | Who </span></h1>
+                    <p style="margin: 0; color: white;">SBIT1C</p>
                     </div>
                 </div>                
                 <nav>
@@ -120,19 +121,20 @@ $conn->close();
                         <li><a href="submit.html">Messages</a></li>
                         <li><a href="contact.html">Contact</a></li>
                         <li><a href="javascript:void(0);" onclick="confirmLogout()">Log Out</a></li> <!-- Log out link with confirmation -->
+                        <i class="fa fa-bars"></i>
                     </ul>
                 </nav>
                 <div class="socmed_icons">   
-                    <i class="fa fa-bars"></i>
+                    
                 </div>
             </header>
             <div class="container">
                 <center>
                     <div class="intro">
-                        <h4>WELCOME, <?= htmlspecialchars($username); ?>!</h4>
+                    <h4> WELCOME, <?= htmlspecialchars ($username); ?>!</h4>
                         <br>
                         <div class="typewriter">
-                            <h5>THIS IS A PLACE WHERE YOU CAN SHARE YOUR UNSAID THOUGHTS</h5>
+                            <h5><center>THIS IS A PLACE WHERE YOU CAN SHARE YOUR UNSAID THOUGHTS</center></h5>
                             <br>
                             <div class="filter-options">
                             <form action="index.php" method="POST">
@@ -174,20 +176,23 @@ $conn->close();
                                         ?>
                                         <div class="message-box" style="background-color: <?= htmlspecialchars($bgColor); ?>;">
                                             <div class="message-header">
-                                                <i class="fas fa-envelope"></i>
-                                                <span class="recipient">To: <?= htmlspecialchars($recipient); ?></span>
+                                                <i class="fas fa-envelope"> </i>
+                                                <span class="recipient bold"> To: <?= htmlspecialchars($recipient); ?></span>
                                             </div>
+                                            <br><br>
                                             <p class="message-content">
-                                                <strong>Message:</strong> <?= htmlspecialchars($message_text); ?>
+                                                <?= htmlspecialchars($message_text); ?>
                                             </p>
+                                            <br><br>
                                             <p class="message-time">
-                                                <strong>Submitted at:</strong> <?= htmlspecialchars($submitted_at); ?>
+                                                <i class="fas fa-clock"></i>
+                                                <?= htmlspecialchars($submitted_at); ?>
                                             </p>
 
                                             <!-- Like button and share button -->
                                             <div class="message-buttons">
                                                 <button class="like-button" data-message-id="<?= htmlspecialchars($message_id); ?>">
-                                                    <i class="fas fa-thumbs-up"></i> Like (<span class="like-count"><?= htmlspecialchars($likes); ?></span>)
+                                                    <i class="fas fa-heart"></i> Like (<span class="like-count"><?= htmlspecialchars($likes); ?></span>)
                                                 </button>
                                                 <button class="share-button" data-link="<?= htmlspecialchars($messageUrl); ?>">
                                                     <i class="fas fa-share-alt"></i> Share
@@ -203,12 +208,14 @@ $conn->close();
                     </div>
                     <br><br>
                     <br><br>
-                    <div id="about">
-                        <p>From Quezon City University<br> Web Development</p>
-                    </div>
+                    
+
                 </center>
             </div>
         </div>
+        <footer id="about">
+    <p>From Quezon City University<br> Web Development</p>
+</footer>
     </section>
    
     <!-- Like and Share Button Scripts -->
