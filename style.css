@@ -1,7 +1,7 @@
 * {
     margin: 0;
     padding: 0;
-    font-family: 'Inter', sans-serif;
+    font-family: 'Poppins', sans-serif;
 }
 
 body, html {
@@ -22,12 +22,17 @@ header {
     align-items: center;
     padding: 50px 60px 40px 100px;
     display: flex;
-
     background-color: steelblue;
-    height: 3.5%;
+    height: 1.5%;
     width: 92%;
     position: relative;
     }
+
+    /* This CSS targets the bars icon */
+.fa-bars {
+    color: white;
+    margin-left: 30px;
+}
 
 .logo{
     display: flex;
@@ -83,7 +88,7 @@ header {
 
 .box-title {
     margin-top: 40px;
-    font-family: 'Quicksand';
+    font-family: 'Poppins, sans-serif';
 }
 
 .text-left, .text-right {
@@ -130,6 +135,7 @@ nav ul li {
     justify-content: flex-end;
     align-items: center;
     display: inline-block;
+   
 }
 
 nav ul li a {
@@ -182,7 +188,7 @@ i:hover {
     margin-top: -13px;
     color: rgb(255, 255, 255);
     background-color: rgb(91, 44, 111);
-    font-family: sans-serif;
+    font-family: 'Poppins', sans-serif;
     letter-spacing: -3px;
     font-size: 50px;
     font-weight: 700;
@@ -200,7 +206,7 @@ i:hover {
     letter-spacing: 2px;
     text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
     margin-top: 50px;
-    font-family: arial black;
+    font-family: 'Poppins', sans-serif black;
     color: darkred;
 }
 
@@ -238,7 +244,7 @@ img.me {
     margin-top: -10px;
     color: #6b409f;
     background-color: transparent;
-    font-family: 'Merriweather';
+    font-family: 'Poppins', sans-serif;
     letter-spacing: -1px;
     font-size: 30px;
     font-weight: 700;
@@ -273,13 +279,13 @@ img.me {
 .filter-options select[name="filter_color"] {
     background-color: steelblue;
     border: 2px solid black;
-    padding: 3px;
+    padding: 4.3px;
     color: white;
 }
 button[type="submit"] {
     background-color: steelblue;
     color: white;
-    padding: 4.2px;
+    padding: 4px;
     border: 2px solid black;
 }
 .messagescontainer h2 {
@@ -484,7 +490,7 @@ color: white;
 }
 
 .message-content {
-    font-family: 'Laros', sans-serif;
+    font-family: 'Poppins', sans-serif;
     font-weight: 900;
     font-size: x-large;
     text-transform:uppercase ;
@@ -496,7 +502,7 @@ color: white;
 }
 
 .recipient {
-    font-family: 'Lato', sans-serif;
+    font-family: 'Poppins', sans-serif;
     font-weight: 700;
     text-transform: uppercase;
     font-size: 20px;
@@ -506,8 +512,13 @@ color: white;
     border-radius: 5px; 
 }
 
+.bold {
+    font-weight: bold;
+}
+
 .message-box .message-header i.fas.fa-envelope {
     color: black;
+    font-size: 25px;
 }
 
 .message-box .message-header i.fas.fa-envelope:hover {
@@ -520,7 +531,7 @@ color: white;
 }
 
 .message-time {
-    font-family:'Times New Roman', Times, serif;
+    font-family:'Poppins', sans-serif;
     font-weight: 500;
     font-size: 0.20rem;
     color: black;
@@ -614,120 +625,140 @@ button:hover {
     }
 }
 
-:root {
-    --primary: #fff;
-    --bg-color: rgb(5, 53, 61);
-    --bg-envelope-color: #f5edd1;
-    --envelope-tab: #ecdeb8;
-    --envelope-cover: #e6cfa7;
-    --shadow-color: rgba(0, 0, 0, 0.2);
-    --txt-color: #444;
-    --heart-color: rgb(252, 8, 231);
-  }
-  body {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    background: var(--bg-color);
+/* Styling for the message box container */
+.message-box {
+    background-color: #f4f4f4; /* Set default background color */
+    padding: 15px;
+    border-radius: 30px;
+    margin-bottom: 15px;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Change background color based on the message color */
+.message-box[data-color='red'] {
+    background-color: #FF0000;
+    color: white;
+}
+
+.message-box[data-color='orange'] {
+    background-color: #FFA500;
+    color: white;
+}
+
+.message-box[data-color='yellow'] {
+    background-color: #FFFF00;
+    color: black;
+}
+
+.message-box[data-color='green'] {
+    background-color: #008000;
+    color: white;
+}
+
+.message-box[data-color='blue'] {
+    background-color: #0000FF;
+    color: white;
+}
+
+.message-box[data-color='violet'] {
+    background-color: #EE82EE;
+    color: black;
+}
+
+/* On hover, slightly enlarge the message box and add shadow */
+.message-box:hover {
+    transform: scale(1.05);
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+/* Message header styling */
+.message-header {
+    font-weight: bold;
+    font-size: 1.1em;
+    margin-bottom: 10px;
     display: flex;
-    flex-direction: column;
     align-items: center;
-  }
-  .containers {
-    height: auto;
-    display: grid;
-    place-items: center;
-  }
-  .envelope-wrapper {
-    background: var(--bg-envelope-color);
-    box-shadow: 0 0 40px var(--shadow-color);
-    margin: 20px;
-  }
-  .envelope {
-    position: relative;
-    width: 300px;
-    height: 230px;
-  }
-  .envelope::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    z-index: 2;
-    border-top: 130px solid var(--envelope-tab);
-    border-right: 150px solid transparent;
-    border-left: 150px solid transparent;
-    transform-origin: top;
-    transition: all 0.5s ease-in-out 0.7s;
-  }
-  .envelope::after {
-    content: "";
-    position: absolute;
-    z-index: 2;
-    width: 0px;
-    height: 0px;
-    border-top: 130px solid transparent;
-    border-right: 150px solid var(--envelope-cover);
-    border-bottom: 100px solid var(--envelope-cover);
-    border-left: 150px solid var(--envelope-cover);
-  }
-  .letter {
-    position: absolute;
-    right: 20%;
-    bottom: 0;
-    width: 54%;
-    height: 80%;
-    background: var(--primary);
-    text-align: center;
-    transition: all 1s ease-in-out;
-    box-shadow: 0 0 5px var(--shadow-color);
-    padding: 20px 10px;
-  }
-  .letter .text {
-    font-family: 'Quicksand', sans-serif;
-    color: var(--txt-color);
-    text-align: left;
-    font-size: 14px;
-  }
-  .heart {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    width: 15px;
-    height: 15px;
-    background: var(--heart-color);
-    z-index: 4;
-    transform: translate(-50%, -20%) rotate(45deg);
-    transition: transform 0.5s ease-in-out 1s;
-    box-shadow: 0 1px 6px var(--shadow-color);
+    gap: 5px;
+}
+
+/* Styling for the recipient */
+.message-header .recipient {
+    color: #333;
+}
+
+/* Styling for message content */
+.message-content {
+    font-size: 1em;
+    line-height: 1.5;
+    margin-bottom: 10px;
+}
+
+/* Time of submission */
+.message-time {
+    font-size: 0.9em;
+    color: #28282B;
+}
+
+/* Buttons for like and share */
+.message-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 10px;
+}
+
+.message-buttons button {
+    padding: 8px 10px;
+    font-size: 0.9em;
+    background-color: #333;
+    color: white;
+    border: none;
+    border-radius: 5px;
     cursor: pointer;
-  }
-  .heart:before,
-  .heart:after {
-    content: "";
-    position: absolute;
-    width: 15px;
-    height: 15px;
-    background-color: var(--heart-color);
-    border-radius: 50%;
-  }
-  .heart:before {
-    top: -7.5px;
-  }
-  .heart:after {
-    right: 7.5px;
-  }
-  .flap .envelope::before {
-    transform: rotateX(180deg);
-    z-index: 0;
-  }
-  .flap .letter {
-    bottom: 100px;
-    transform: scale(1.5);
-    transition-delay: 1s;
-  }
-  .flap .heart {
-    transform: rotate(90deg);
-    transition-delay: 0.4s;
-  }
+    transition: background-color 0.3s ease;
+}
+
+.message-buttons button:hover {
+    background-color: #555;
+}
+
+/* Like button specific styles */
+.like-button i,
+.share-button i {
+    margin-right: 5px;
+}
+
+
+@media (max-width: 768px) {
+    .message-box {
+        padding: 10px;
+        margin-bottom: 10px;
+    }
+    
+    .message-header {
+        font-size: 1em;
+    }
+    
+    .message-content {
+        font-size: 0.9em;
+    }
+    
+    .message-buttons button {
+        font-size: 0.8em;
+    }
+}
+
+footer {
+    background-color: steelblue;
+    color: #fff; /* White text */
+    text-align: center; /* Center-align text */
+    padding: 20px 0; /* Add some space inside the footer */
+    position: fixed; /* Make it stick to the bottom of the viewport */
+    bottom: 0;
+    width: 100%; /* Make it span the entire width */
+    font-family: 'Poppins', sans-serif; /* Optional: Consistent font style */
+    font-size: 14px; /* Adjust font size as needed */
+}
 
   
