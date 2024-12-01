@@ -21,9 +21,12 @@
 header {
     justify-content: space-between;
     align-items: center;
-    padding: 50px 30px 40px 30px;
-    width: 78.5%;
+    padding: 50px 60px 40px 100px;
     display: flex;
+    background-color: steelblue;
+    height: 2%;
+    width: 100%;
+    position: relative;
 }
 
 .logo {
@@ -38,7 +41,7 @@ header {
 }
 
 .logo h1{
-    margin: 0;
+    margin-right: 0;
     font-size: 24px;
 }
 
@@ -54,6 +57,8 @@ header {
 
 nav {
     padding-right: 0;
+
+    
 }
 
 nav ul li {
@@ -63,7 +68,7 @@ nav ul li {
 }
 
 nav ul li a {
-    color: rgb(58, 57, 57);
+    color: white;
     margin-left: 30px;
     padding-bottom: 10px;
     font-size: 18px;
@@ -304,6 +309,7 @@ img.me {
     .upper {
         max-width: 460px;
     }
+    
     .logo h1 {
         font-size: 11px;
     }
