@@ -1,7 +1,7 @@
 *{
     margin: 0;
     padding: 0;
-    font-family: 'Poppins, sans-serif'; 
+    font-family: 'Inter', sans-serif;
 }
 
 html, body {
@@ -32,10 +32,10 @@ header{
     align-items: center;
     padding: 50px 60px 40px 100px;
     display: flex;
-
     background-color: steelblue;
     height: 3.5% ;
     width: 92% ;
+    position: relative;
 }
 
 .logo{
@@ -209,7 +209,7 @@ i :hover{
     margin-top: -13px;
     color: rgb(255, 255, 255);
     background-color: rgb(91, 44, 111);
-    font-family: 'Poppins, sans-serif';
+    font-family: sans-serif;
     letter-spacing: -3px;
     font-size: 50px;
     font-weight: 700;
@@ -226,7 +226,7 @@ i :hover{
     letter-spacing: 2px;
     text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
     margin-top: 50px;
-    font-family: 'Poppins, sans-serif';
+    font-family: 'Lora', serif;
     }
     .intro p{
     font-size: 19px;
@@ -259,7 +259,7 @@ i :hover{
     margin-top: -10px;
     color: #6b409f;
     background-color: transparent;
-    font-family: 'Poppins, sans-serif';
+    font-family: 'Merriweather';
     letter-spacing: -1px;
     font-size: 30px;
     font-weight: 70;
