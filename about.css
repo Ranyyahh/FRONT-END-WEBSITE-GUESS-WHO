@@ -192,3 +192,95 @@ nav ul li a:hover {
         width: 80px;
     }
 }
+
+
+/* Side Bar */
+.menu-button {
+    font-size: 24px;
+    background: none;
+    border: none;
+    color: white;
+    cursor: pointer;
+    transition: transform 0.3s;
+}
+
+
+.menu-button:hover {
+    transform: scale(1.1);
+}
+
+
+/* Sidebar styles */
+.sidebar {
+    position: fixed;
+    top: 0;
+    right: -320px; /* Initially hidden */
+    width: 320px;
+    height: 100%;
+    background-color: white;
+    box-shadow: -3px 0 5px rgba(0, 0, 0, 0.2);
+    transition: right 0.3s ease; /* Smooth slide animation */
+    z-index: 1000;
+    overflow-y: auto;
+}
+
+
+/* Sidebar when open */
+.sidebar.open {
+    right: 0; /* Slide into view */
+}
+
+
+/* Sidebar header */
+.sidebar-header {
+    display: flex;
+    justify-content: flex-end;
+    padding: 10px 20px;
+    background-color: #f9f9f9;
+    border-bottom: 1px solid #ddd;
+}
+
+
+.close-btn {
+    font-size: 24px;
+    border: none;
+    background: none;
+    color: #555;
+    cursor: pointer;
+    transition: transform 0.3s, color 0.3s;
+}
+
+
+.close-btn:hover {
+    color: #ff4d4d;
+    transform: rotate(90deg);
+}
+
+
+/* Sidebar content */
+.sidebar-content {
+    padding: 20px;
+    font-family: 'Poppins', sans-serif;
+    color: #333;
+}
+
+
+.sidebar-content h1 {
+    font-size: 24px;
+    color: #004080;
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+
+.sidebar-content p {
+    font-size: 16px;
+    line-height: 1.6;
+    margin-bottom: 20px;
+    text-align: justify;
+}
+
+
+.sidebar-content strong {
+    color: #004080;
+}
