@@ -1,13 +1,16 @@
 <?php
 session_start();
 
+
 // Default message display
 $messages = [];
 $search_name = '';
 $filter_color = '';
 
+
 // Retrieve the logged-in username or set to 'Guest' if not logged in
 $username = isset($_SESSION['username']) ? $_SESSION['username'] : 'Guest';
+
 
 // Database connection credentials
 $servername = "localhost";
@@ -15,13 +18,16 @@ $dbUsername = "root";
 $password = "";
 $dbname = "GuessWho_db";
 
+
 // Create connection
 $conn = new mysqli($servername, $dbUsername, $password, $dbname);
+
 
 // Check the connection
 if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }
+
 
 // Get search inputs only when a form is submitted
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
@@ -29,10 +35,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $filter_color = trim($_POST['filter_color'] ?? '');
 }
 
+
 // Base query to get all messages initially
 $sql = "SELECT id, message, color, recipient, submitted_at, likes FROM Messages_tbl WHERE 1=1";
 $params = [];
 $types = "";
+
 
 // Add filters if provided
 if (!empty($search_name)) {
@@ -41,11 +49,13 @@ if (!empty($search_name)) {
     $types .= "s";
 }
 
+
 if (!empty($filter_color)) {
     $sql .= " AND color = ?";
     $params[] = $filter_color;
     $types .= "s";
 }
+
 
 // Prepare the SQL statement
 $stmt = $conn->prepare($sql);
@@ -53,19 +63,23 @@ if (!$stmt) {
     die("Statement preparation failed: " . $conn->error);
 }
 
+
 // Bind parameters dynamically if any
 if (!empty($params)) {
     $stmt->bind_param($types, ...$params);
 }
+
 
 // Execute the query
 if (!$stmt->execute()) {
     die("Query execution failed: " . $stmt->error);
 }
 
+
 // Fetch results
 $result = $stmt->get_result();
 $messages = $result->fetch_all(MYSQLI_ASSOC);
+
 
 // Close connections
 $stmt->close();
@@ -82,6 +96,7 @@ $conn->close();
     <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;700&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700&display=swap" rel="stylesheet">
     <link href='https://fonts.googleapis.com/css?family=Poppins' rel='stylesheet'>
+
 
     <style>
         body::-webkit-scrollbar {
@@ -121,11 +136,40 @@ $conn->close();
                         <li><a href="submit.html">Messages</a></li>
                         <li><a href="contact.html">Contact</a></li>
                         <li><a href="javascript:void(0);" onclick="confirmLogout()">Log Out</a></li> <!-- Log out link with confirmation -->
-                        <i class="fa fa-bars"></i>
-                    </ul>
+                        <li><button id="menu-icon" class="menu-button" style="font-size: 24px; color: white; background: none; border: none; cursor: pointer; margin-left: auto;">☰</button></li>
+                    </ul> 
+            </header>
+       
+
+
+
+
+    <!-- Sidebar -->
+    <div class="sidebar" id="sidebar" style="position: fixed; top: 0; right: -320px; width: 320px; height: 100%; background: white; box-shadow: -2px 0 5px rgba(0, 0, 0, 0.3); transition: right 0.3s ease;">
+        <div class="sidebar-header" style="display: flex; justify-content: flex-end; padding: 10px;">
+            <button id="close-btn" class="close-btn" style="font-size: 24px; background: none; border: none; cursor: pointer;">×</button>
+        </div>
+        <div class="sidebar-content" style="padding: 20px;">
+            <h1 style="font-size: 24px; color: #004080;">Hey there!</h1>
+            <p> We're so glad you found your way to *Guess Who*. This special online space is created just for *Quezon City University* students, and it is a place where you can feel safe and supported as you express yourself.</p>
+
+
+            <p>If you have a secret that's been weighing on your heart, a confession you're hesitant to share, or thoughts you wish you could express to someone, you're in the right place. Everyone deserves a safe and welcoming space to share their feelings and experiences. It's important to express yourself without the fear of being judged. Here, you can share your thoughts anonymously, and we want you to know that your privacy truly matters to us. Remember, you're not alone; we're here to listen and support you.</p>
+
+
+            <p>So, come on in and let your voice be heard—we're looking forward to hearing what you say!</p>
+
+
+            <p>All the love, <br><strong>The Team</strong></p>
+
+
+
+
+        </div>
+    </div>
                 </nav>
-                <div class="socmed_icons">   
-                    
+                <div class="socmed_icons">  
+                   
                 </div>
             </header>
             <div class="container">
@@ -152,24 +196,29 @@ $conn->close();
 </form>
 
 
+
+
                             </div>
                         </div>
 
+
                         <br>
+
 
                         <div class="messagescontainer">
                             <h2>All Messages:</h2>
                             <div class="message-grid">
                                 <?php if (!empty($messages)): ?>
                                     <?php foreach ($messages as $message): ?>
-                                        <?php 
-                                        
+                                        <?php
+                                       
                                         $message_id = $message['id'] ?? 0;
                                         $message_text = $message['message'] ?? 'No message available';
                                         $recipient = $message['recipient'] ?? 'Unknown';
                                         $submitted_at = $message['submitted_at'] ?? 'Unknown';
                                         $likes = $message['likes'] ?? 0;
                                         $bgColor = $message['color'] ?? 'blue';
+
 
                                        
                                         $messageUrl = "http://localhost/WEBSITE/index.php?message_id=" . urlencode($message_id);
@@ -188,6 +237,7 @@ $conn->close();
                                                 <i class="fas fa-clock"></i>
                                                 <?= htmlspecialchars($submitted_at); ?>
                                             </p>
+
 
                                             <!-- Like button and share button -->
                                             <div class="message-buttons">
@@ -208,23 +258,50 @@ $conn->close();
                     </div>
                     <br><br>
                     <br><br>
-                    
+                   
                     <div id="about">
                         <p>From Quezon City University<br> Web Development</p>
                     </div>
                 </center>
             </div>
         </div>
-        
-                
+       
+               
     </section>
     <!-- Like and Share Button Scripts -->
+    <script>
+        // Open sidebar
+        document.getElementById("menu-icon").addEventListener("click", function () {
+            const sidebar = document.getElementById("sidebar");
+            sidebar.style.right = "0";
+        });
+
+
+
+
+        // Close sidebar
+        document.getElementById("close-btn").addEventListener("click", function () {
+            const sidebar = document.getElementById("sidebar");
+            sidebar.style.right = "-320px";
+        });
+
+
+
+
+        // Placeholder for logout confirmation
+        function confirmLogout() {
+            if (confirm("Are you sure you want to log out?")) {
+                window.location.href = "logout.html";
+            }
+        }
+    </script>
     <script>
         document.addEventListener("DOMContentLoaded", function () {
             document.querySelectorAll(".like-button").forEach(function (button) {
                 button.addEventListener("click", function () {
                     const messageId = this.getAttribute("data-message-id");
                     const likeCountSpan = this.querySelector(".like-count");
+
 
                     fetch("like_handler.php", {
                         method: "POST",
@@ -248,9 +325,11 @@ $conn->close();
                 });
             });
 
+
             document.querySelectorAll(".share-button").forEach(function (button) {
                 button.addEventListener("click", function () {
                     const link = this.getAttribute("data-link");
+
 
                     if (navigator.share) {
                         navigator.share({
@@ -271,5 +350,7 @@ $conn->close();
     <script>
         document.body.style.overflow = 'auto';
     </script>
+
+
 </body>
 </html>
