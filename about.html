@@ -26,41 +26,117 @@
                 </div>
                 <nav>
                     <ul>
-                        <li><a href="index.php">Home</a></li>
-                        <li><a href="about.html">About</a></li>
-                        <li><a href="submit.html">Messages</a></li>
-                        <li><a href="contact.html">Contact</a></li>
-                        <li><a href="logout.php">Log Out</a></li>
-                        <li> <a class="fa fa-bars"></a> </li>
-                    </ul>
-                </nav>
+                        <ul>
+                            <li><a href="index.php">Home</a></li>
+                            <li><a href="about.html">About</a></li>
+                            <li><a href="submit.html">Messages</a></li>
+                            <li><a href="contact.html">Contact</a></li>
+                            <li><a href="javascript:void(0);" onclick="confirmLogout()">Log Out</a></li> <!-- Log out link with confirmation -->
+                            <li><button id="menu-icon" class="menu-button" style="font-size: 24px; color: white; background: none; border: none; cursor: pointer; margin-left: auto;">☰</button></li>
+                        </ul> 
+                </header>
+           
+
+        <!-- Sidebar -->
+        <div class="sidebar" id="sidebar" style="position: fixed; top: 0; right: -320px; width: 320px; height: 100%; background: white; box-shadow: -2px 0 5px rgba(0, 0, 0, 0.3); transition: right 0.3s ease;">
+            <div class="sidebar-header" style="display: flex; justify-content: flex-end; padding: 10px;">
+                <button id="close-btn" class="close-btn" style="font-size: 24px; background: none; border: none; cursor: pointer;">×</button>
+            </div>
+            <div class="sidebar-content" style="padding: 20px;">
+                <h1 style="font-size: 24px; color: #004080;">Hey there!</h1>
+                <p> We're so glad you found your way to *Guess Who*. This special online space is created just for *Quezon City University* students, and it is a place where you can feel safe and supported as you express yourself.</p>
+    
+    
+                <p>If you have a secret that's been weighing on your heart, a confession you're hesitant to share, or thoughts you wish you could express to someone, you're in the right place. Everyone deserves a safe and welcoming space to share their feelings and experiences. It's important to express yourself without the fear of being judged. Here, you can share your thoughts anonymously, and we want you to know that your privacy truly matters to us. Remember, you're not alone; we're here to listen and support you.</p>
+    
+    
+                <p>So, come on in and let your voice be heard—we're looking forward to hearing what you say!</p>
+    
+    
+                <p>All the love, <br><strong>The Team</strong></p>
+    
+    
+    
+    
+            </div>
+        </div>
+                    </nav>
                 <div class="socmed_icons">
-                    
+                   
                 </div>
             </header>
             <div class="container">
                 <center>
                     <div class="intro">
-                        <h4>A GUIDE FOR POTENTIAL USER OF THE<br>GUESS WHO</h4>
-                        <br><br>
-                        <br><br>
-                    <div class="typewriter">
-                        <h5>THIS IS A PLACE WHERE YOU CAN SHARE YOUR UNSAID THOUGHTS</h5>
-                        <br><br>
+                        <h4>ABOUT US</h4>
+                        <br>
                     <div class="para">
-                        <h6>
-                            Our team designed the Guess Who website to provide Quezon City University students with a safe and friendly space. <br>
-                            It's a safe place to express thoughts, emotions, and sentiments that you might not feel comfortable chatting about <br>
-                            with others. Whether it's a secret you've been holding onto, a confession you're not quite ready to make public, or <br>
-                            simply words you wish you could say to someone, you can share it here anonymously. We've ensured that your privacy <br>
-                            is our top priority so you can feel safe and supported. <br>
-                        </h6>
-                        <div id="about">
-                            <p>From Quezon City University<br> Web Development</p>
-                        </div>
+                        <p>
+                            <span class="indented"> We are a team of young website developers from SBIT-1C at Quezon City University, 
+                                dedicated to creating meaningful 
+                                online spaces. We proudly create Guess Who, a space where students can freely express themselves and connect with 
+                                others. With our shared passion, we aim to make this platform a welcoming environment for everyone. <br><br></span>
+                            <span class="indented"> We’re thrilled to have you here and can’t wait to be part of your journey!</span>
+                        </p>
+                    
+                    <div class="members">
+                        <span>
+                            <img src="MATACUBO.png" alt="Matacubo"><br>
+                            <p>Eunice P. Matacubo</p>
+                        </span>
+                        <span>
+                            <img src="MOBE.png" alt="Mobe"><br>
+                            <p>Desiree L. Mobe</p>
+                        </span>
+                        <span>
+                            <img src="REYES.png" alt="Reyes"><br>
+                            <p>Franz Remnant R. Reyes</p>
+                        </span>
+                        <span>        
+                            <img src="ANTONIO.png" alt="Antonio" class="ANTONIO"><br>
+                            <p>Kyle Vincent R. Antonio</p>
+                        </span>
+                        <span>
+                            <img src="DIVERSON.png" alt="Diverson" class="DIVERSON"><br>
+                            <p>Andrew T. Diverson</p>
+                        </span>
+                        <span>
+                            <img src="LUCES.png" alt="Luces" class="LUCES"><br>
+                            <p>Roderick L. Luces Jr.</p>
+                        </span>
+                    </div>  
                 </center>
             </div>
         </div>
+    </div>
+</div>
+</div>
     </section>
+    <script>
+        // Open sidebar
+        document.getElementById("menu-icon").addEventListener("click", function () {
+            const sidebar = document.getElementById("sidebar");
+            sidebar.style.right = "0";
+        });
+
+
+
+
+        // Close sidebar
+        document.getElementById("close-btn").addEventListener("click", function () {
+            const sidebar = document.getElementById("sidebar");
+            sidebar.style.right = "-320px";
+        });
+
+
+
+
+        // Placeholder for logout confirmation
+        function confirmLogout() {
+            if (confirm("Are you sure you want to log out?")) {
+                window.location.href = "logout.html";
+            }
+        }
+    </script>
 </body>
 </html>
