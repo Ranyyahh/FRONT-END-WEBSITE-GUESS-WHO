@@ -1,3 +1,4 @@
+
 * {
     margin: 0;
     padding: 0;
@@ -5,17 +6,17 @@
     box-sizing: border-box;
 }
 
+
 .upper {
     background: url('001.jpg');
     background-size: cover;
     display: flex;
-    flex-direction: column; 
-    align-items: center; 
+    flex-direction: column;
+    align-items: center;
     justify-content: center;
-    width: 100vw; 
+    width: 100vw;
     height: 100vh;
 }
-
 
 
 header {
@@ -29,21 +30,25 @@ header {
     position: relative;
 }
 
+
 .logo {
     display: flex;
     align-items: center;
     font-size: 14px;
 }
 
+
 #imglogo img{
     height: 40px;
     margin-right: 10px;
 }
 
+
 .logo h1{
     margin-right: 0;
     font-size: 24px;
 }
+
 
 .logo p {
     margin: 0;
@@ -51,21 +56,26 @@ header {
     font-size: 15px;
 }
 
+
 .logo h1 span {
     color: #6b409f;
 }
 
+
 nav {
     padding-right: 0;
 
-    
+
+   
 }
+
 
 nav ul li {
     justify-content: flex-end;
     align-items: center;
     display: inline-block;
 }
+
 
 nav ul li a {
     color: white;
@@ -76,96 +86,142 @@ nav ul li a {
     transition: 0.2s ease-in-out;
 }
 
+
 nav ul li a:hover {
     border-bottom: 1px solid rgb(88, 87, 87);
 }
+
 
 .socmed_icons {
     font-size: 20px;
 }
 
+
 i {
     margin-left: 18px;
 }
+
 
 i:hover {
     background-color: rgb(167, 164, 160);
     transition: 0.3s ease-in-out;
 }
 
+
 h1 {
     color: #333;
 }
 
 
-
 .container {
     display: flex;
+    justify-content: center;
     align-items: center;
-    justify-content: space-evenly;
-    height: 90vh; 
-    width: 40%;
-    background-color: #ffffff;
-    border-radius: 10%;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
-    padding: 30px;
-    margin: 20px auto;
+    height: calc(100vh - 50px);
+    width: 100%;
+
+
+}
+.form-container {
+    background-color: #0a4a6e;  
+    border-radius: 0;
+    display: flex;
+    flex-direction: row;
+    align-items: stretch; /* Ensures both columns have the same height */
+    width: 90%; /* Adjust container width */
+    max-width: 1700px; /* Adjust maximum width */
+   margin: 0 auto;
+   min-height: 80vh;
 }
 
 
+.form-container .left {
+    flex: 1;
+    padding: 100px;
 
-
-.form-wrapper {
-    text-align: center;
+   
 }
-
-.form-group {
-    margin-bottom: 20px;
-    text-align: left;
+.form-container .left h4 {
+    color: #f0f0c9;
+    font-size: 50px;
 }
-
-label {
-    font-size: 1rem;
-    color: #555;
-    margin-bottom: 8px;
+.form-container .left .first-p {
+    color: #f2bb05;
+    font-size: 20px;
+    margin: 0 0 10px 0;
+} 
+.form-container .left .second-p{
+    color: #9a7807;
+    font-size: 20px;
+    margin: 0 0 10px 0;
+}
+.form-container .left .second-p a{
+    color: #9a7807;
+    font-size: 20px;
+    margin: 0 0 10px 0;
+}
+.form-container .left a {
+    color: #f0c040;
+    text-decoration: none;
+}
+.form-container .left a:hover {
+    text-decoration: underline;
+}
+.form-container .right {
+    flex: 1;
+    margin-right: 5%;
+    padding: 25px;
+    background-color: #0e5a7e;
+    border-radius: 10px;
+    height: 1%;
+    align-self: center;
+}
+.form-container .right label {
+    color: #f0f0f0;
     display: block;
+    margin-bottom: 5px;
+    font-size: 16px;
 }
-
-textarea, input {
+.form-container .right input{
     width: 100%;
     padding: 10px;
-    border: 2px solid #ccc;
-    border-radius: 5px;
-    font-size: 1rem;
-    margin-top: 5px;
-}
-
-textarea {
-    resize: none;
-}
-
-input[type="color"] {
-    padding: 0;
-    border: none;
-    width: 100px;
-    height: 40px;
-    cursor: pointer;
-}
-
-button {
-    background-color: #000000;
-    color: white;
+    margin-bottom: 10px;
     border: none;
     border-radius: 5px;
-    padding: 12px 20px;
-    font-size: 1.2rem;
-    cursor: pointer;
+    height: 55px;
+}
+.form-container .right textarea {
     width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: none;
+    border-radius: 5px;
+    height: 180px;
+}
+.form-container .right button {
+    width: 90%;
+    padding: 10px;
+    background-color: #000000;
+    color: #ffffff;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    display: block;
+    margin: 0 auto; 
+
 }
 
-button:hover {
-    background-color: #000000;
+.form-container .right .custom-select-wrapper .custom-select {
+    width: 100px;
+    padding: 10px;
+    height: 10%;
 }
+
+.form-container .right button:hover {
+    background-color: #333333;
+}
+
 
 .message-display {
     margin-top: 20px;
@@ -173,6 +229,8 @@ button:hover {
     background-color: rgb(91, 44, 111);
     border-radius: 5px;
 }
+
+
 
 
 .intro h2 {
@@ -189,6 +247,7 @@ button:hover {
     font-variant: small-caps;
 }
 
+
 .intro h4 {
     color: rgb(28, 40, 51);
     font-family: sans-serif;
@@ -199,10 +258,12 @@ button:hover {
     font-variant: small-caps;
 }
 
+
 .intro p {
     font-size: 19px;
     line-height: 25px;
 }
+
 
 .intro a {
     color: aliceblue;
@@ -219,9 +280,11 @@ button:hover {
     height: 50vh;
 }
 
+
 .intro a:hover {
     background-color: rgba(29, 26, 26, 0.575);
 }
+
 
 img.me {
     width: 100%;
@@ -230,11 +293,14 @@ img.me {
 }
 
 
+
+
 @media screen and (max-width: 1100px) {
     .upper {
         max-width: 900px;
     }
 }
+
 
 @media screen and (max-width: 900px) {
     .upper {
@@ -252,6 +318,7 @@ img.me {
         margin-left: 14px;
     }
 }
+
 
 @media screen and (max-width: 800px) {
     .upper {
@@ -287,16 +354,21 @@ img.me {
     }
 }
 
-@media only screen and (max-width: 768px) {
-    .container {
-        height: auto; 
-        padding: 20px;
-        width: 90%; 
-    }
 
+@media only screen and (max-width: 768px) {
+    .form-container {
+        height: auto;
+        padding: 20px;
+        width: 90%;
+    }
+    .form-container .left,
+    .form-container .right {
+        padding: 10px;
+    }
     h1 {
         font-size: 1.5rem;
     }
+
 
     button {
         font-size: 1rem;
@@ -305,11 +377,13 @@ img.me {
 }
 
 
+
+
 @media screen and (max-width: 600px) {
     .upper {
         max-width: 460px;
     }
-    
+   
     .logo h1 {
         font-size: 11px;
     }
@@ -341,6 +415,7 @@ img.me {
         line-height: 20px;
     }
 }
+
 
 @media screen and (max-width: 460px) {
     .upper {
@@ -402,6 +477,7 @@ img.me {
     }
 }
 
+
 @media screen and (max-width: 400px) {
     .upper {
         max-width: 325px;
@@ -419,6 +495,7 @@ img.me {
         font-size: 10px;
     }
 }
+
 
 @media screen and (max-width: 325px) {
     .upper {
