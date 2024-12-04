@@ -102,6 +102,70 @@ $conn->close();
         body::-webkit-scrollbar {
             display: none;
         }
+
+        
+*{
+    margin: 0;
+    padding: 0;
+    font-family: 'Inter', sans-serif;
+    box-sizing: border-box;
+}
+
+html, body {
+    overflow: hidden;
+    width: 100%;
+    height: 100%;
+}
+
+.upper {
+    background: url('001.jpg') no-repeat center center/cover;
+    width: 100%; 
+    height: 100vh; 
+}
+
+header {
+    justify-content: space-between;
+    align-items: center;
+    padding: 50px 60px 70px 100px;
+    display: flex;
+    background-color: steelblue;
+    height: 3%;
+    width: 100%;
+    position: relative;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+}
+
+.logo img {
+    height: 40px;
+    margin-right: 10px;
+}
+
+nav ul {
+    display: flex;
+    list-style: none;
+    gap: 20px;
+}
+
+nav ul li a {
+    color: white;
+    margin-left: 50px;
+    padding-bottom: 10px;
+    
+    font-size: 16px;
+    text-decoration: none;
+    transition: color 0.3s, border-bottom 0.3s;
+}
+
+
+
+nav ul li a:hover {
+    color: #B794F4;
+    border-bottom: 2px solid #B794F4;
+}
     </style>
     <script>
         // JavaScript to confirm logout
@@ -119,24 +183,24 @@ $conn->close();
         <div style="height: 2000px;" class="upper">
             <header>
                 <div class="logo" style="display: flex; align-items: center;">
-                    <div id="imglogo" style="margin-right: 10px;">
+                    <div id="imglogo" style="margin-right: 10px; margin-top: 31px;">
                         <img src="site_logo_removebg.png" alt="Logo">
                         <img src="QCU_Logo_2019.png" alt="Logo">
                         <img src="ccs_logo.png" alt="Logo">
                     </div>
-                    <div>
+                    <div style="margin-top: 31px;">
                         <h1><span style="color: white;">Guess | Who</h1>
                         <p style="margin: 0; color: white;">SBIT1C</p>
                     </div>
                 </div>                
-                <nav>
+                <nav style="margin-top: 31px;">
                     <ul>
-                        <li><a href="index.php">Home</a></li>
-                        <li><a href="about.html">About</a></li>
-                        <li><a href="submit.html">Messages</a></li>
-                        <li><a href="contact.html">Contact</a></li>
-                        <li><a href="javascript:void(0);" onclick="confirmLogout()">Log Out</a></li> <!-- Log out link with confirmation -->
-                        <li><button id="menu-icon" class="menu-button" style="font-size: 24px; color: white; background: none; border: none; cursor: pointer; margin-left: auto;">☰</button></li>
+                        <li><a style="margin-right: px;" href="index.php">Home</a></li>
+                        <li><a style="margin-right: px;" href="about.html">About</a></li>
+                        <li><a style="margin-right: px;" href="submit.html">Messages</a></li>
+                        <li><a style="margin-right: px;" href="contact.html">Contact</a></li>
+                        <li><a style="margin-right: 100px;" href="javascript:void(0);" onclick="confirmLogout()">Log Out</a></li> <!-- Log out link with confirmation -->
+                        <li><button id="menu-icon" class="menu-button" style="font-size: 17px; color: white; background: none; border: none; cursor: pointer; margin-left: px; margin-right: 100px;">☰</button></li>
                     </ul> 
             </header>
        
@@ -151,7 +215,7 @@ $conn->close();
         </div>
         <div class="sidebar-content" style="padding: 20px;">
             <h1 style="font-size: 24px; color: #004080;">Hey there!</h1>
-            <p> We're so glad you found your way to *Guess Who*. This special online space is created just for *Quezon City University* students, and it is a place where you can feel safe and supported as you express yourself.</p>
+            <p> We're so glad you found your way to Guess Who. This special online space is created just for Quezon City University students, and it is a place where you can feel safe and supported as you express yourself.</p>
 
 
             <p>If you have a secret that's been weighing on your heart, a confession you're hesitant to share, or thoughts you wish you could express to someone, you're in the right place. Everyone deserves a safe and welcoming space to share their feelings and experiences. It's important to express yourself without the fear of being judged. Here, you can share your thoughts anonymously, and we want you to know that your privacy truly matters to us. Remember, you're not alone; we're here to listen and support you.</p>
@@ -291,7 +355,7 @@ $conn->close();
         // Placeholder for logout confirmation
         function confirmLogout() {
             if (confirm("Are you sure you want to log out?")) {
-                window.location.href = "logout.html";
+                window.location.href = "http://localhost/Landing/landingpage.html";
             }
         }
     </script>
