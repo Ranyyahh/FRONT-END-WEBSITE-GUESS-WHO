@@ -8,31 +8,38 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
     <title>Submit your message</title>
+<style>
+header {
+    height: 3%;
+    
+    
+}
+</style>    
 </head>
 <body>
     <section id="home">
         <div class="upper">
             <header>
-                <div class="logo" style="display: flex; align-items: center;">
+                <div class="logo" style="display: flex; align-items: center; margin-top: 31px;">
                     <div id="imglogo" style="margin-right: 10px;">
                         <img src="site_logo_removebg.png" alt="Logo">
                         <img src="QCU_Logo_2019.png" alt="Logo">
                         <img src="ccs_logo.png" alt="Logo">
                     </div>
-                    <div>
+                    <div style="margin-top: 40px;">
                         <h1><span style="color: white" >Guess | Who </span></h1>
-                        <p style="margin: 0; color: white;">SBIT1C</p>
+                        <p style="font-size: 16px; color: white;">SBIT1C</p>
                     </div>
                 </div>
                
-                <nav>
+                <nav style="margin-top: 72px;">
                     <ul>
                         <li><a href="index.php">Home</a></li>
-                            <li><a href="about.html">About</a></li>
-                            <li><a href="submit.html">Messages</a></li>
-                            <li><a href="contact.html">Contact</a></li>
-                            <li><a href="javascript:void(0);" onclick="confirmLogout()">Log Out</a></li> <!-- Log out link with confirmation -->
-                            <li><button id="menu-icon" class="menu-button" style="font-size: 24px; color: white; background: none; border: none; cursor: pointer; margin-left: auto;">☰</button></li>
+                            <li><a style="margin-right: px;" href="about.html">About</a></li>
+                            <li><a style="margin-right: px;" href="submit.html">Messages</a></li>
+                            <li><a style="margin-right: px;" href="contact.html">Contact</a></li>
+                            <li><a style="margin-right: 100px;" href="javascript:void(0);" onclick="confirmLogout()">Log Out</a></li> <!-- Log out link with confirmation -->
+                            <li><button id="menu-icon" class="menu-button" style="font-size: 17px; color: white; background: none; border: none; cursor: pointer; margin-left: auto; margin-right: 100px;">☰</button></li>
                         </ul> 
                 </header>
            
@@ -44,7 +51,7 @@
             </div>
             <div class="sidebar-content" style="padding: 20px;">
                 <h1 style="font-size: 24px; color: #004080;">Hey there!</h1>
-                <p> We're so glad you found your way to *Guess Who*. This special online space is created just for *Quezon City University* students, and it is a place where you can feel safe and supported as you express yourself.</p>
+                <p> We're so glad you found your way to Guess Who. This special online space is created just for Quezon City University students, and it is a place where you can feel safe and supported as you express yourself.</p>
     
     
                 <p>If you have a secret that's been weighing on your heart, a confession you're hesitant to share, or thoughts you wish you could express to someone, you're in the right place. Everyone deserves a safe and welcoming space to share their feelings and experiences. It's important to express yourself without the fear of being judged. Here, you can share your thoughts anonymously, and we want you to know that your privacy truly matters to us. Remember, you're not alone; we're here to listen and support you.</p>
@@ -92,11 +99,11 @@
                                   aria-label="Select a color for the message"
                                   onchange="updateColorPreview(this)"
                                   class="custom-select">
-                                  <option value="#FF0000" style="color: #FF0000;">🔴 Red</option>
+                                  <option value="#b23a48" style="color: #b23a48;">🔴 Red</option>
                                   <option value="#FFA500" style="color: #FFA500;">🟠 Orange</option>
                                   <option value="#FFFF00" style="color: #FFFF00;">🟡 Yellow</option>
                                   <option value="#008000" style="color: #008000;">🟢 Green</option>
-                                  <option value="#0000FF" style="color: #0000FF;">🔵 Blue</option>
+                                  <option value="#42a5f5" style="color: #42a5f5;">🔵 Blue</option>
                                   <option value="#EE82EE" style="color: #EE82EE;">🟣 Violet</option>
                                 </select>
                               </div>
@@ -130,7 +137,7 @@
         // Placeholder for logout confirmation
         function confirmLogout() {
             if (confirm("Are you sure you want to log out?")) {
-                window.location.href = "logout.html";
+                window.location.href = "http://localhost/Landing/landingpage.html";
             }
         }
     </script>
