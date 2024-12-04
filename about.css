@@ -46,11 +46,15 @@ nav ul {
 
 nav ul li a {
     color: white;
+    margin-left: 50px;
     padding-bottom: 10px;
+    
     font-size: 16px;
     text-decoration: none;
     transition: color 0.3s, border-bottom 0.3s;
 }
+
+
 
 nav ul li a:hover {
     color: #B794F4;
@@ -202,6 +206,7 @@ nav ul li a:hover {
     color: white;
     cursor: pointer;
     transition: transform 0.3s;
+    padding-bottom: 0px;
 }
 
 
