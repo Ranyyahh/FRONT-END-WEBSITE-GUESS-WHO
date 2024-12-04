@@ -249,11 +249,11 @@ nav ul li a:hover {
     <input type="text" name="search_name" placeholder="Search..." value="<?= htmlspecialchars($search_name); ?>">
     <select name="filter_color">
         <option value="">Select color</option>
-        <option value="#FF0000" <?= $filter_color == '#FF0000' ? 'selected' : ''; ?>>Red</option>
+        <option value="#b23a48" <?= $filter_color == '#b23a48' ? 'selected' : ''; ?>>Red</option>
         <option value="#FFA500" <?= $filter_color == '#FFA500' ? 'selected' : ''; ?>>Orange</option>
         <option value="#FFFF00" <?= $filter_color == '#FFFF00' ? 'selected' : ''; ?>>Yellow</option>
         <option value="#008000" <?= $filter_color == '#008000' ? 'selected' : ''; ?>>Green</option>
-        <option value="#0000FF" <?= $filter_color == '#0000FF' ? 'selected' : ''; ?>>Blue</option>
+        <option value="#42a5f5" <?= $filter_color == '#42a5f5' ? 'selected' : ''; ?>>Blue</option>
         <option value="#EE82EE" <?= $filter_color == '#EE82EE' ? 'selected' : ''; ?>>Violet</option>
     </select>
     <button type="submit">Search</button>
