@@ -536,32 +536,28 @@ i :hover{
 .sidebar {
     position: fixed;
     top: 0;
-    right: -320px; /* Initially hidden */
+    right: -320px; 
     width: 320px;
     height: 100%;
     background-color: white;
     box-shadow: -3px 0 5px rgba(0, 0, 0, 0.2);
-    transition: right 0.3s ease; /* Smooth slide animation */
+    transition: right 0.3s ease; 
     z-index: 1000;
     overflow-y: auto;
 }
 
-
-/* Sidebar when open */
 .sidebar.open {
-    right: 0; /* Slide into view */
+    right: 0; 
 }
 
-
-/* Sidebar header */
 .sidebar-header {
-    display: flex;
-    justify-content: flex-end;
     padding: 0px 20px;
     background-color: #f9f9f9;
     border-bottom: 1px solid #ddd;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
-
 
 .close-btn {
     right: -70px;
@@ -570,7 +566,13 @@ i :hover{
     background: none;
     color: #555;
     cursor: pointer;
-    transition: transform 0.3s, color 0.3s;
+    margin-left: auto;  
+    transition: color 0.3s, transform 0.3s;
+}
+
+.close-btn {
+    position: relative;
+    right: 10px; 
 }
 
 .close-btn:hover {
